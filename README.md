@@ -1,5 +1,4 @@
 # Mentorship Rewards Optimization
----
 
 ## Context
 The Rewards Program team is preparing for a major evaluation of how effectively the rewards are driving user engagement and satisfaction. They need insights to help optimize reward offerings, identify key segments, and understand the overall impact of the reward types on user behavior. Accurate data analysis is crucial for making data driven decisions on reward offerings and tailoring them to different user segments.
@@ -79,7 +78,6 @@ The Rewards Program team is focused on enhancing user engagement and maximising 
 6. **Saving the Cleaned Dataset**: The final cleaned dataset was saved for further analysis.
 
 # Findings
-
 Upon inspection, the following findings were noted:
 1. The first column was unnamed, but it appeared to represent mentee IDs and was therefore renamed `Mentee_ID`.
 2. **Missing Values Analysis**
@@ -99,10 +97,11 @@ Upon inspection, the following findings were noted:
 
 **Handling Missing Values**:
 
-- Missing values in `Session_Number` and `Session_Duration_Min` were filled using the mean of the respective columns.
-- Other variables with missing values were flagged as `NaN`.
-- `Points_Awarded` had numerous 109 missing values, which were initially filled with 0, to be updated later with the correct reward points in Task 2.
+- Missing values in *Session_Number* and *Session_Duration_Min* were filled using the mean of the respective columns.
+- Other variables with missing values were flagged as *NaN*.
+- *Points_Awarded* had numerous 109 missing values, which were initially filled with 0, to be updated later with the correct reward points in Task 2.
 - The Python code used for handling missing values is shown below:
+
 ```python
 # Handle the missing values by dropping or filling in rows/columns
 df.dropna(subset=['Mentee_ID','Mentor_ID', 'Mentee_Name', 'Job_Info_Completed', 'Session_Date'])
@@ -131,7 +130,7 @@ This report details the allocation of points to mentors based on the criteria ou
 - **Excel**: To load and save the dataset.
 
 ## Data Cleaning
-The cleaned dataset included relevant columns such as `Mentor_ID`, `Mentee_ID`, `Session_Duration_Min`, `Job_Info_Completed`, and `Points_Awarded`. Initial processing ensured all data was in the correct format and ready for point allocation.
+The cleaned dataset included relevant columns such as *Mentor_ID*, *Mentee_ID*, *Session_Duration_Min*, *Job_Info_Completed*, and *Points_Awarded*. Initial processing ensured all data was in the correct format and ready for point allocation.
 
 ## Point Allocation Criteria
 1. **Mentor Signup Points**: Each mentor received 250 points for signing up.
@@ -160,6 +159,7 @@ The cleaned dataset included relevant columns such as `Mentor_ID`, `Mentee_ID`, 
 |NaN|	250|
 
 - **Updated Dataset**: The final updated dataset, saved as Updated_Mentorship_Sessions.xlsx, included the points awarded to each mentor alongside the original data.
+
 ```python
 # Merge the points dataframe to the cleaned dataframe and save
 df = df.merge(points_df, on='Mentor_ID', how='left', suffixes=('', '_new'))
